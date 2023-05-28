@@ -11,6 +11,26 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'song/create',
+    loadChildren: () => import('./pages/song/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'song/detail/:id',
+    loadChildren: () => import('./pages/song/detail/detail.module').then( m => m.DetailPageModule)
+  },
+  {
+    path: 'update/:id',
+    loadChildren: () => import('./pages/song/update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'song/list',
+    loadChildren: () => import('./pages/song/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/singers/list/list.module').then( m => m.ListPageModule)
+  },
 ];
 
 @NgModule({

@@ -24,3 +24,11 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+.toast-success {
+    --ion-color-primary: #4caf50;
+}
+
+.toast-error {
+    --ion-color-primary: #f44336;
+}

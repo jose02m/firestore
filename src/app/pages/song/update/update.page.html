@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Actualizar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/song/list">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="updateSongForm" (ngSubmit)="updateSong()">
+
+    <ion-item>
+      <ion-label position="stacked">Nombre de la canción</ion-label>
+      <ion-input formControlName="songName" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Artista de la canción</ion-label>
+      <ion-input formControlName="artistName" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Álbum de la canción</ion-label>
+      <ion-input formControlName="albumName" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-input formControlName="songDescription" type="text"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Actualizar canción</ion-button>
+  </form>
+</ion-content>

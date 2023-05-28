@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="gray">
+    <ion-buttons slot="end">
+      <ion-button routerLink="/song/list">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Canciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon slot="start" name="headset"></ion-icon>
+          <ion-text>
+            <h3>{{song?.songName}}  </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-icon slot="start" name="person"></ion-icon>
+          <ion-text>
+            <h3>{{song?.artistName}}  </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-icon slot="start" name="albums"></ion-icon>
+          <ion-text>
+            <h3>{{song?.albumName}}  </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-icon slot="start" name="text"></ion-icon>
+          <ion-text>
+            <h3>{{song?.songDescription}}  </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+      </ion-list>
+
+      <ion-buttons>
+        <ion-button (click)="deleteSong(song)" expand="block">
+          <ion-icon slot="start" name="trash" color="danger"></ion-icon>
+          Eliminar
+        </ion-button>
+        <ion-button expand="block" routerLink="/update/{{song?.id}}">
+          <ion-icon slot="start" name="create" color="success"></ion-icon>
+          Editar
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

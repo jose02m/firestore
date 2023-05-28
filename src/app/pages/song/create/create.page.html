@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Canciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/song/list">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar una nueva canción</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-padding">
+
+      <form [formGroup]="createSongForm" (ngSubmit)="createSong()">
+
+        <ion-item>
+          <ion-label position="floating">Nombre de la canción</ion-label>
+          <ion-input formControlName="songName" type="text" placeholder="Digite el nombre de la canción"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Artista de la canción</ion-label>
+          <ion-input formControlName="artistName" type="text" placeholder="¿Quién canta la canción?"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Álbum de la canción</ion-label>
+          <ion-input formControlName="albumName" type="text" placeholder="¿Cuál es el álbum de la canción?"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Descripción</ion-label>
+          <ion-input formControlName="songDescription" type="text"
+            placeholder="¿De qué trata esta canción?"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit">Agregar canción</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
