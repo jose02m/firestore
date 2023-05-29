@@ -28,8 +28,24 @@ const routes: Routes = [
     loadChildren: () => import('./pages/song/list/list.module').then( m => m.ListPageModule)
   },
   {
-    path: 'list',
+    path: 'artist/list',
     loadChildren: () => import('./pages/singers/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'recording/create',
+    loadChildren: () => import('./pages/recording/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'recording/list',
+    loadChildren: () => import('./pages/recording/list/list.module').then( m => m.ListPageModule)
+  },
+  {
+    path: 'recording/detail/:id',
+    loadChildren: () => import('./pages/recording/detail/detail.module').then( m => m.DetailPageModule)
+  },
+  {
+    path: 'recording/update/:id',
+    loadChildren: () => import('./pages/recording/update/update.module').then( m => m.UpdatePageModule)
   },
 ];
 

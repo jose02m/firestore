@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Firestore, collection, addDoc, collectionData } from '@angular/fire/firestore';
 import { getDoc, doc, deleteDoc, updateDoc } from 'firebase/firestore';
-import Song from 'src/app/song';
+import Song from 'src/app/interfaces/song';
 
 @Injectable({
   providedIn: 'root'

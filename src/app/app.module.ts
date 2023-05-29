@@ -6,17 +6,16 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-//import { environment } from 'src/environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { firebaseConfig } from './credentials';
-
-//const app = initializeApp(firebaseConfig);
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, 
             IonicModule.forRoot(),
             AppRoutingModule,
+            HttpClientModule,
             provideFirebaseApp(() => initializeApp(firebaseConfig)),
             provideFirestore(() => getFirestore()),
           ],

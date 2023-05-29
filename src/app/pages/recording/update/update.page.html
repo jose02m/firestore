@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recordings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/recording/list">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="updateRecordingForm" (ngSubmit)="updateRecording()">
+
+    <ion-item>
+      <ion-label position="stacked">Nombre de la grabación</ion-label>
+      <ion-input formControlName="nameRedording" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo de melodía</ion-label>
+      <ion-input formControlName="type_of_melody" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Cabins</ion-label>
+      <ion-input formControlName="number_of_cabins" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Propietario</ion-label>
+      <ion-input formControlName="owner" type="text"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Actualizar grabación</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recordings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/recording/list">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar una nueva recording</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-padding">
+
+      <form [formGroup]="createRecordingForm" (ngSubmit)="createRecording()">
+
+        <ion-item>
+          <ion-label position="floating">Nombre de la grabación</ion-label>
+          <ion-input formControlName="nameRedording" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Tipo de melodía</ion-label>
+          <ion-input formControlName="type_of_melody" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Cabins</ion-label>
+          <ion-input formControlName="number_of_cabins" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Propietario</ion-label>
+          <ion-input formControlName="owner" type="text"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit">Añadir grabación</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

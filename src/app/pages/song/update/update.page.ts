@@ -48,8 +48,7 @@ export class UpdatePage implements OnInit {
 
   async updateSong() {
     const loading = await this.lc.create();
-    console.log(this.song)
-    console.log(this.updateSongForm.value);
+
     this.fs.updateSong(this.songId, this.updateSongForm.value).then(
       () => {
         loading.dismiss().then(() => {

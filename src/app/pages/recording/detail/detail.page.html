@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="gray">
+    <ion-title>Recordings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/recording/list">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon slot="start" name="mic"></ion-icon>
+          <ion-text>
+            <h3>{{recording?.nameRedording}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-icon slot="start" name="musical-note"></ion-icon>
+          <ion-text>
+            <h3>{{recording?.type_of_melody}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+          <ion-text>
+            <h3>{{recording?.number_of_cabins}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <ion-icon slot="start" name="person"></ion-icon>
+          <ion-text>
+            <h3>{{recording.owner}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+      </ion-list>
+
+      <ion-buttons>
+        <ion-button (click)="deleteRecording(recording)" expand="block">
+          <ion-icon slot="start" name="trash" color="danger"></ion-icon>
+          Eliminar
+        </ion-button>
+        <ion-button expand="block" routerLink="/recording/update/{{recording?.id}}">
+          <ion-icon slot="start" name="create" color="success"></ion-icon>
+          Editar
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

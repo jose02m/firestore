@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
-import { FirestoreService } from 'src/app/services/data/firestore.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import Song from 'src/app/interfaces/song';
+import { RecordingService } from 'src/app/services/data/recording.service';
+import RecordingStudios from 'src/app/interfaces/recording-studios';
 
 @Component({
   selector: 'app-detail',
@@ -10,29 +10,29 @@ import Song from 'src/app/interfaces/song';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
-  song: any = {};
-  songId: any;
+  recording: any = {};
+  recordingId: any;
 
-  constructor(private fs: FirestoreService,
+  constructor(private rs: RecordingService,
     private acRoute: ActivatedRoute,
     public ac: AlertController,
     public router: Router,
     public tc: ToastController) { }
 
-  async ngOnInit() {
-    this.songId = this.acRoute.snapshot.paramMap.get('id');
-    await this.songInfo();
+  ngOnInit() {
+    this.recordingId = this.acRoute.snapshot.paramMap.get('id');
+    this.recordingInfo()
   }
 
-  async songInfo() {
-    this.song = (await this.fs.getSongDetail(this.songId)).data();
-    this.song.id = this.songId;
+  async recordingInfo() {
+    this.recording = (await this.rs.getRecordingDetail(this.recordingId)).data();
+    this.recording.id = this.recordingId;
   }
 
-  async deleteSong(song: Song) {
+  async deleteRecording(recording: RecordingStudios) {
     const alert = await this.ac.create({
       header: 'Confirmar eliminación',
-      message: "¿Desea eliminar esta canción?",
+      message: "¿Desea eliminar esta grabación?",
       buttons: [
         {
           text: 'Cancelar',
@@ -45,8 +45,8 @@ export class DetailPage implements OnInit {
         {
           text: 'Eliminar',
           handler: async () => {
-            this.fs.deleteSong(song);
-            this.router.navigateByUrl('/song/list');
+            this.rs.deleteRecording(recording);
+            this.router.navigateByUrl('/recording/list');
             this.mostrarToast()
           }
         }
@@ -57,7 +57,7 @@ export class DetailPage implements OnInit {
 
   async mostrarToast() {
     const toast = this.tc.create({
-      message: "¡Canción eliminada!",
+      message: "Recording eliminada!",
       duration: 2000,
       icon: 'thumbs-up',
     });

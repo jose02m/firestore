@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { SingerService } from 'src/app/services/data/singer.service';
 
 @Component({
   selector: 'app-list',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
+  artists: Observable<any>;
 
-  constructor() { }
+  constructor(private singerService: SingerService) {
+    this.artists = this.singerService.getSingers();
+  }
 
   ngOnInit() {
   }
-
 }
