@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recover</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Recuperar contraseña</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-padding">
+      <form [formGroup]="recoverForm" (ngSubmit)="resetPassword($event)">
+
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input formControlName="email" type="email" placeholder="Digite su correo electrónico"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit">Recuperar mi contraseña</ion-button>
+        <p>¿Ya tienes una cuenta? <a routerLink="../login">Aquí puedes iniciar sesión</a> </p>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
