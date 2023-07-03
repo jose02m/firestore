@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light">
+    <ion-title>
+      Eventos
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/create-event">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/home">
+        <ion-icon slot="end" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header class="ion-padding">
+      <ion-card-title>Lista de eventos</ion-card-title>
+      <ion-card-subtitle>¡Aquí están tus eventos próximos!</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list lines="underfined">
+        <ion-item *ngFor="let event of eventList">
+          <ion-icon slot="start" name="headset"></ion-icon>
+          <ion-icon slot="end" name="eye" routerLink="/detail-event/{{event.id}}" class="view"></ion-icon>
+
+          <ion-label>
+            <h3>{{event?.name}}</h3>
+            <p>Ticket: <strong> {{ event.price | currency }} </strong></p>
+            <p>Date: <strong> {{ event.date | date }} </strong></p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

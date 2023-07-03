@@ -59,6 +59,22 @@ const routes: Routes = [
     path: 'recover',
     loadChildren: () => import('./pages/recover/recover.module').then( m => m.RecoverPageModule)
   },
+  {
+    path: 'create-event',
+    loadChildren: () => import('./pages/events/create-event/create-event.module').then( m => m.CreateEventPageModule)
+  },
+  {
+    path: 'list-event',
+    loadChildren: () => import('./pages/events/list-event/list-event.module').then( m => m.ListEventPageModule)
+  },
+  {
+    path: 'detail-event/:id',
+    loadChildren: () => import('./pages/events/detail-event/detail-event.module').then( m => m.DetailEventPageModule)
+  },
+  {
+    path: 'guests-events/:id',
+    loadChildren: () => import('./pages/events/guests-events/guests-events.module').then( m => m.GuestsEventsPageModule)
+  },
 ];
 
 @NgModule({

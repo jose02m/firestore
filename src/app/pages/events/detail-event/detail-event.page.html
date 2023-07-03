@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="gray">
+    <ion-buttons slot="end">
+      <ion-button routerLink="/list-event">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      Event's Revenue
+
+      <span [ngClass]="{'profitable': currentEvent?.revenue > 0, 'noProfitable': currentEvent?.revenue <= 0}">
+
+      {{currentEvent?.revenue | currency }}
+      {{currentEvent?.id}}
+      </span>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon slot="start" name="headset"></ion-icon>
+          <ion-text>
+            <h3>{{currentEvent?.name}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <p>Ticket</p>
+          <ion-text>
+            <h3>{{currentEvent?.price | currency}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+
+        <ion-item>
+          <p>Fecha</p>
+          <ion-text>
+            <h3>{{currentEvent?.date | date}} </h3>
+          </ion-text>
+        </ion-item>
+        <br>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>Agregar invitados</ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floated">Nombre</ion-label>
+        <ion-input [(ngModel)]="guestName" type="text"></ion-input>
+      </ion-item>
+
+      <ion-button (click)="addGuest(guestName)" expand="block" color="primary" [disabled]="!guestName">
+        Agregar invitado
+      </ion-button>
+
+      <ion-button routerLink="/guests-events/{{eventId}}" expand="block" color="primary">
+        Ver asistentes
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

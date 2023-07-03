@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Asistentes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon slot="end" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header class="ion-padding">
+      <ion-card-title> <strong> Lista de asistentes al evento</strong> </ion-card-title>
+    </ion-card-header>
+
+    <ion-list lines="underfined">
+      <ion-card color="light" *ngFor="let guest of guestList">
+        <ion-item>
+          <ion-icon slot="start" name="person" class="ion-icon-left"></ion-icon>
+          <p>{{guest.guestName}}</p>
+        </ion-item>      
+      </ion-card>
+    </ion-list>
+  </ion-card>
+</ion-content>
